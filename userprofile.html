@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile - Memojar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index.html" style="text-decoration: none; color: inherit;">
+      <div class="logo">Memojar</div>
+    </a>
+    <div class="user-profile">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User" class="profile-icon">
+    </div>
+  </header>
+
+  <!-- Main Body -->
+  <main>
+    <!-- User Details Section -->
+    <section id="user-details">
+      <h2>User Profile</h2>
+
+      <div class="user-info">
+        <label for="name">Name:</label>
+        <input type="text" id="name" value="John Doe" disabled>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" value="john_doe" disabled>
+
+        <label for="about">Tell me about yourself:</label>
+        <textarea id="about" disabled>This is a short bio about myself...</textarea>
+      </div>
+
+      <button id="edit-profile" onclick="toggleEdit()">Edit Profile</button>
+    </section>
+
+    <!-- User Memories Section -->
+    <section id="user-memories">
+      <h2>My Memories</h2>
+      <div id="memories-list">
+        <!-- Each memory card will be displayed here -->
+        <div class="memory-card">
+          <div class="memory-category">
+            <img src="path/to/icon.png" alt="Category Icon">
+            <span>Personal</span>
+          </div>
+          <h3>Memory Topic Title</h3>
+          <p>Memory details...</p>
+          <div class="memory-actions">
+            <button onclick="editMemory()">Edit</button>
+            <button onclick="deleteMemory()">Delete</button>
+            <button onclick="shareMemory()">Share</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </div>
+    <div class="social-media">
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn"></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Snapchat"></a>
+    </div>
+    <div class="copyright">
+      ©2025 Memojar. 
+    </div>
+  </footer>
+
+  <script>
+    function toggleEdit() {
+      const inputs = document.querySelectorAll('#user-details input, #user-details textarea');
+      inputs.forEach(input => input.disabled = !input.disabled);
+      const editButton = document.getElementById('edit-profile');
+      editButton.textContent = editButton.textContent === 'Edit Profile' ? 'Save Profile' : 'Edit Profile';
+    }
+
+    function editMemory() {
+      // Implement memory edit logic
+      alert('Edit memory');
+    }
+
+    function deleteMemory() {
+      // Implement memory delete logic
+      alert('Delete memory');
+    }
+
+    function shareMemory() {
+      // Implement memory share logic
+      alert('Share memory');
+    }
+  </script>
+</body>
+</html>
