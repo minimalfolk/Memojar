@@ -56,7 +56,7 @@
       margin-bottom: 5px;
     }
 
-    .profile-info input {
+    .profile-info input, .profile-info textarea {
       padding: 8px;
       font-size: 16px;
       margin-bottom: 15px;
@@ -76,124 +76,78 @@
     .profile-info button:hover {
       background-color: #555;
     }
-
-    .memories-section {
-      margin-top: 40px;
-      text-align: center;
-    }
-
-    .memories-section h2 {
-      margin-bottom: 20px;
-    }
-
-    .memory-card {
-      background-color: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .memory-card h3 {
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
-
-    .memory-card .category {
-      padding: 5px 10px;
-      background-color: #4CAF50;
-      color: #fff;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-
-    .memory-card .actions {
-      display: flex;
-      gap: 10px;
-    }
-
-    .memory-card .actions button {
-      background-color: #ff9800;
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .memory-card .actions button:hover {
-      background-color: #e68900;
-    }
-
   </style>
 </head>
 <body>
+
   <!-- Header -->
   <header>
     <div class="logo">Memojar</div>
   </header>
 
-  <!-- User Profile Section -->
   <div class="user-profile">
     <!-- Profile Picture -->
     <div class="profile-pic">
-      <img src="https://via.placeholder.com/120" alt="Profile Picture">
+      <img id="profile-pic" src="https://via.placeholder.com/120" alt="Profile Picture">
     </div>
     <!-- Profile Information -->
     <div class="profile-info">
       <label for="name">Full Name:</label>
-      <input type="text" id="name" value="John Doe">
+      <input type="text" id="name" placeholder="Enter your full name">
       
       <label for="username">Username:</label>
-      <input type="text" id="username" value="johndoe123">
+      <input type="text" id="username" placeholder="Enter your username">
       
       <label for="bio">Tell us about yourself:</label>
-      <textarea id="bio" rows="4" placeholder="Write something about yourself...">Lorem ipsum dolor sit amet.</textarea>
+      <textarea id="bio" rows="4" placeholder="Write something about yourself..."></textarea>
       
       <button onclick="saveProfile()">Save Changes</button>
     </div>
   </div>
 
-  <!-- My Memories Section -->
-  <div class="memories-section">
-    <h2>My Memories</h2>
-
-    <!-- Memory Cards -->
-    <div class="memory-card">
-      <div>
-        <h3>My Trip to Paris</h3>
-        <span class="category">Personal</span>
-      </div>
-      <div class="actions">
-        <button>Edit</button>
-        <button>Delete</button>
-        <button>Share</button>
-      </div>
-    </div>
-    <div class="memory-card">
-      <div>
-        <h3>Graduation Day</h3>
-        <span class="category">Achievement</span>
-      </div>
-      <div class="actions">
-        <button>Edit</button>
-        <button>Delete</button>
-        <button>Share</button>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // Save Profile Changes (simulated)
+    // Check if the user is logged in
+    window.onload = function() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      if (isLoggedIn !== 'true') {
+        // If the user is not logged in, redirect to the login page
+        window.location.href = 'login.html';
+      }
+
+      // Load saved profile data if logged in
+      const savedName = localStorage.getItem('name');
+      const savedUsername = localStorage.getItem('username');
+      const savedBio = localStorage.getItem('bio');
+      const savedProfilePic = localStorage.getItem('profilePic');
+
+      if (savedName) {
+        document.getElementById('name').value = savedName;
+      }
+      if (savedUsername) {
+        document.getElementById('username').value = savedUsername;
+      }
+      if (savedBio) {
+        document.getElementById('bio').value = savedBio;
+      }
+      if (savedProfilePic) {
+        document.getElementById('profile-pic').src = savedProfilePic;
+      }
+    }
+
+    // Save Profile Changes (using localStorage)
     function saveProfile() {
       const name = document.getElementById('name').value;
       const username = document.getElementById('username').value;
       const bio = document.getElementById('bio').value;
+      const profilePic = document.getElementById('profile-pic').src;
 
-      alert(`Profile updated:\nName: ${name}\nUsername: ${username}\nBio: ${bio}`);
+      // Save data to localStorage
+      localStorage.setItem('name', name);
+      localStorage.setItem('username', username);
+      localStorage.setItem('bio', bio);
+      localStorage.setItem('profilePic', profilePic);
+
+      alert('Profile updated successfully!');
     }
   </script>
 </body>
