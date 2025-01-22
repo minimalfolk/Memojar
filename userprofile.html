@@ -4,103 +4,196 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profile - Memojar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .user-profile {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin-right: 20px;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .profile-info label {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .profile-info input {
+      padding: 8px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .profile-info button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .profile-info button:hover {
+      background-color: #555;
+    }
+
+    .memories-section {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .memories-section h2 {
+      margin-bottom: 20px;
+    }
+
+    .memory-card {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .memory-card h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .memory-card .category {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .memory-card .actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .memory-card .actions button {
+      background-color: #ff9800;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .memory-card .actions button:hover {
+      background-color: #e68900;
+    }
+
+  </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <a href="index.html" style="text-decoration: none; color: inherit;">
-      <div class="logo">Memojar</div>
-    </a>
-    <div class="user-profile">
-      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User" class="profile-icon">
-    </div>
+    <div class="logo">Memojar</div>
   </header>
 
-  <!-- Main Body -->
-  <main>
-    <!-- User Details Section -->
-    <section id="user-details">
-      <h2>User Profile</h2>
+  <!-- User Profile Section -->
+  <div class="user-profile">
+    <!-- Profile Picture -->
+    <div class="profile-pic">
+      <img src="https://via.placeholder.com/120" alt="Profile Picture">
+    </div>
+    <!-- Profile Information -->
+    <div class="profile-info">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" value="John Doe">
+      
+      <label for="username">Username:</label>
+      <input type="text" id="username" value="johndoe123">
+      
+      <label for="bio">Tell us about yourself:</label>
+      <textarea id="bio" rows="4" placeholder="Write something about yourself...">Lorem ipsum dolor sit amet.</textarea>
+      
+      <button onclick="saveProfile()">Save Changes</button>
+    </div>
+  </div>
 
-      <div class="user-info">
-        <label for="name">Name:</label>
-        <input type="text" id="name" value="John Doe" disabled>
+  <!-- My Memories Section -->
+  <div class="memories-section">
+    <h2>My Memories</h2>
 
-        <label for="username">Username:</label>
-        <input type="text" id="username" value="john_doe" disabled>
-
-        <label for="about">Tell me about yourself:</label>
-        <textarea id="about" disabled>This is a short bio about myself...</textarea>
+    <!-- Memory Cards -->
+    <div class="memory-card">
+      <div>
+        <h3>My Trip to Paris</h3>
+        <span class="category">Personal</span>
       </div>
-
-      <button id="edit-profile" onclick="toggleEdit()">Edit Profile</button>
-    </section>
-
-    <!-- User Memories Section -->
-    <section id="user-memories">
-      <h2>My Memories</h2>
-      <div id="memories-list">
-        <!-- Each memory card will be displayed here -->
-        <div class="memory-card">
-          <div class="memory-category">
-            <img src="path/to/icon.png" alt="Category Icon">
-            <span>Personal</span>
-          </div>
-          <h3>Memory Topic Title</h3>
-          <p>Memory details...</p>
-          <div class="memory-actions">
-            <button onclick="editMemory()">Edit</button>
-            <button onclick="deleteMemory()">Delete</button>
-            <button onclick="shareMemory()">Share</button>
-          </div>
-        </div>
+      <div class="actions">
+        <button>Edit</button>
+        <button>Delete</button>
+        <button>Share</button>
       </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-links">
-      <a href="contact.html">Contact</a>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms & Conditions</a>
     </div>
-    <div class="social-media">
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Snapchat"></a>
+    <div class="memory-card">
+      <div>
+        <h3>Graduation Day</h3>
+        <span class="category">Achievement</span>
+      </div>
+      <div class="actions">
+        <button>Edit</button>
+        <button>Delete</button>
+        <button>Share</button>
+      </div>
     </div>
-    <div class="copyright">
-      ©2025 Memojar. 
-    </div>
-  </footer>
+  </div>
 
   <script>
-    function toggleEdit() {
-      const inputs = document.querySelectorAll('#user-details input, #user-details textarea');
-      inputs.forEach(input => input.disabled = !input.disabled);
-      const editButton = document.getElementById('edit-profile');
-      editButton.textContent = editButton.textContent === 'Edit Profile' ? 'Save Profile' : 'Edit Profile';
-    }
+    // Save Profile Changes (simulated)
+    function saveProfile() {
+      const name = document.getElementById('name').value;
+      const username = document.getElementById('username').value;
+      const bio = document.getElementById('bio').value;
 
-    function editMemory() {
-      // Implement memory edit logic
-      alert('Edit memory');
-    }
-
-    function deleteMemory() {
-      // Implement memory delete logic
-      alert('Delete memory');
-    }
-
-    function shareMemory() {
-      // Implement memory share logic
-      alert('Share memory');
+      alert(`Profile updated:\nName: ${name}\nUsername: ${username}\nBio: ${bio}`);
     }
   </script>
 </body>
