@@ -10,64 +10,43 @@
 <body>
   <!-- Header -->
   <header>
-  <a href="index.html" style="text-decoration: none; color: inherit;">
     <div class="logo">Memojar</div>
-  </a>
-    <div class="user-profile">
-      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User" class="profile-icon">
+    <input type="text" placeholder="Search memories..." class="search-bar">
+    <div class="profile-icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User">
     </div>
-  </a>
-  <!-- Main Body -->
-  <main>
-    <!-- Add Memories Section -->
-    <section id="add-memory">
-      <h2>Add a Memory</h2>
-      <form id="memory-form">
-        <label for="memory-category">Category</label>
-        <select id="memory-category">
-          <option value="Personal">Personal</option>
-          <option value="Family">Family</option>
-          <option value="Achievement">Achievement</option>
-          <option value="Relationship">Relationship</option>
-        </select>
-        
-        <label for="memory-topic">Memory Topic</label>
-        <input type="text" id="memory-topic" placeholder="Enter memory topic" required>
-        
-        <label for="memory-details">Details</label>
-        <textarea id="memory-details" placeholder="Write about your memory..." required></textarea>
-        
-        <button type="submit" class="animated-button">Add Memory</button>
-      </form>
-    </section>
+  </header>
 
-    <!-- Display Memories Section -->
-    <section id="memory-list">
-      <h2>My Memories</h2>
-      <div id="memories">
-        <!-- Memories will appear here -->
-      </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Capture Your Precious Memories</h1>
+    <p>Scroll through your memories or add new ones to treasure forever.</p>
+  </section>
+
+  <!-- Content Feed -->
+  <main>
+    <section class="content-feed" id="memory-list">
+      <!-- Memory Cards -->
+      <article class="memory-card">
+        <h2>Vacation in Bali</h2>
+        <p>Category: Travel | Date: Jan 2025</p>
+        <p class="description">An unforgettable trip filled with adventures and relaxation.</p>
+        <div class="memory-actions">
+          <button class="favorite-button">❤️</button>
+          <button class="comment-button">💬</button>
+          <button class="share-button">🔗</button>
+        </div>
+      </article>
+      <!-- More memory cards will be dynamically added -->
     </section>
   </main>
 
+  <!-- Floating Action Button -->
+  <button class="fab" onclick="openAddMemoryModal()">+</button>
+
   <!-- Footer -->
   <footer>
-    <div class="footer-links">
-      <a href="contact.html">Contact</a>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms & Conditions</a>
-    </div>
-    <div class="social-media">
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Snapchat"></a>
-    </div>
-    <div class="copyright">
-      ©2025 Memojar. 
-    </div>
+    <p>&copy; 2025 Memojar. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
